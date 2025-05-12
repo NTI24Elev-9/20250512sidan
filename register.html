@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - SteepGamesHub</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        .success-message {
+            color: green;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="site-wrapper">
+        <div class="logo">
+            <a href="Maincode.html" style="text-decoration: none; color: inherit;">SteepGamesHub</a>
+        </div>
+        <div class="main-nav">
+            <nav>
+                <ul>
+                    <li><a href="#">Games Of The Year 2025</a></li>
+                    <li><a href="#">Free Games</a></li>
+                    <li><a href="#">Budget Games</a></li>
+                    <li><a href="#">Games</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="BoxM">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Store</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="#">Account Wallet</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="social-circles">
+            <div class="circle twitter"></div>
+            <div class="circle facebook"></div>
+            <div class="circle discord"></div>
+        </div>
+        <div class="action-boxes">
+            <div class="action-box cart-box">Cart</div>
+            <div class="auth-buttons">
+                <div id="loginRegister" style="display: flex; gap: 10px;">
+                    <div class="action-box"><a href="login.html" style="text-decoration: none; color: inherit;">Log In</a></div>
+                    <div class="action-box"><a href="register.html" style="text-decoration: none; color: inherit;">Register</a></div>
+                </div>
+            </div>
+            <div class="action-box"><a href="database.html" style="text-decoration: none; color: inherit;">View Database</a></div>
+        </div>
+        <div class="registration-container">
+            <form class="registration-form" id="registrationForm">
+                <h2>Create an Account</h2>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <div id="passwordError" class="error-message">Passwords do not match!</div>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="13" required>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the Terms of Service</label>
+                </div>
+                <button type="submit" class="register-btn">Create Account</button>
+                <div id="successMessage" class="success-message">Registration successful!</div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                For further inquiries contact: airidas.gruzinskas@elev.ga.ntig.se OR call this telephone number +46761575182
+            </div>
+            <div class="footer-section">
+                All pictures are used under fair use and all credits for the pictures shall be credited
+            </div>
+            <div class="footer-section">
+                Sweden, Stockholm, 11241, Sysslomansgatan 18, 112 41, Stockholm
+            </div>
+        </div>
+    </footer>
+
+    <script>
+      
+        const form = document.getElementById('registrationForm');
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirmPassword');
+        const passwordError = document.getElementById('passwordError');
+        const successMessage = document.getElementById('successMessage');
+
+    
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+        
+            if (password.value !== confirmPassword.value) {
+                passwordError.style.display = 'block';
+                return;
+            }
+            passwordError.style.display = 'none'; 
+            const userData = {
+                username: form.username.value,
+                email: form.email.value,
+                password: form.password.value,
+                age: form.age.value,
+                registrationDate: new Date().toLocaleString()
+            };
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            users.push(userData);
+            localStorage.setItem('users', JSON.stringify(users));
+            successMessage.style.display = 'block';
+            form.reset();
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+                window.location.href = 'login.html'; 
+            }, 2000);
+        });
+    </script>
+</body>
+</html> 

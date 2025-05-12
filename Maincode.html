@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteepGamesHub</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="auth.js"></script>
+    <style>
+        .welcome-message {
+            position: absolute;
+            top: 23px;
+            right: 20px;
+            background-color: #808080;
+            color: black;
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            border: 2px solid black;
+        }
+        .logout-btn {
+            background: none;
+            border: none;
+            color: black;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .logout-btn:hover {
+            color: #444;
+        }
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <a href="Maincode.html" style="text-decoration: none; color: inherit;">SteepGamesHub</a>
+    </div>
+    <div class="main-nav">
+        <nav>
+            <ul>
+                <li><a href="#">Games Of The Year 2025 [NOT REAL WEBSITE]</a></li>
+                <li><a href="#">Free Games</a></li>
+                <li><a href="#">Budget Games</a></li>
+                <li><a href="#">Games</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="BoxM">
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Store</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+                <li><a href="#">Account Wallet</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="social-circles">
+        <div class="circle twitter"></div>
+        <div class="circle facebook"></div>
+        <div class="circle discord"></div>
+    </div>
+    <div class="action-boxes">
+        <div class="action-box cart-box">Cart</div>
+        <div class="auth-buttons">
+            <div id="loginRegister" style="display: flex; gap: 10px;">
+                <div class="action-box"><a href="login.html" style="text-decoration: none; color: inherit;">Log In</a></div>
+                <div class="action-box"><a href="register.html" style="text-decoration: none; color: inherit;">Register</a></div>
+            </div>
+        </div>
+    </div>
+    <div id="welcomeMessage" class="welcome-message" style="display: none;">
+        Welcome, <span id="username"></span>!
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+    <div class="games-flex">
+        <div class="game-box" onclick="window.location.href='elden-ring.html'"><div class="game-img"><img src="https://image.api.playstation.com/vulcan/img/rnd/202111/0506/hcFeWRVGHYK72uOw6Mn6f4Ms.jpg" alt="Elden Ring"></div><div class="game-overlay">Elden Ring<br>$59.99</div></div>
+        <div class="game-box" onclick="window.location.href='minecraft.html'"><div class="game-img"><img src="https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png" alt="Minecraft"></div><div class="game-overlay">Minecraft<br>$26.95</div></div>
+        <div class="game-box" onclick="window.location.href='fortnite.html'"><div class="game-img"><img src="https://cdn2.unrealengine.com/social-image-chapter4-s3-3840x2160-d35912cc25ad.jpg" alt="Fortnite"></div><div class="game-overlay">Fortnite<br>Free</div></div>
+        <div class="game-box" onclick="window.location.href='witcher3.html'"><div class="game-img"><img src="https://image.api.playstation.com/vulcan/ap/rnd/202211/0714/S1jCzktWD7XJSRkz4kNYNVM0.png" alt="The Witcher 3"></div><div class="game-overlay">The Witcher 3<br>$39.99</div></div>
+        <div class="game-box" onclick="window.location.href='gtav.html'"><div class="game-img"><img src="https://nordichardware.se/wp-content/uploads/GTA-V_banner-1.jpg" alt="GTA V"></div><div class="game-overlay">GTA V<br>$29.99</div></div>
+        <div class="game-box" onclick="window.location.href='valorant.html'"><div class="game-img"><img src="https://store-images.s-microsoft.com/image/apps.21507.13663857844271189.4c1de202-3961-4c40-a0aa-7f4f1388775a.20ed7782-0eda-4f9d-b421-4cc47492edc6" alt="Valorant"></div><div class="game-overlay">Valorant<br>Free</div></div>
+        <div class="game-box" onclick="window.location.href='cyberpunk2077.html'"><div class="game-img"><img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg" alt="Cyberpunk 2077"></div><div class="game-overlay">Cyberpunk 2077<br>$49.99</div></div>
+        <div class="game-box" onclick="window.location.href='among-us.html'"><div class="game-img"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Among_Us_cover_art.jpg/250px-Among_Us_cover_art.jpg" alt="Among Us"></div><div class="game-overlay">Among Us<br>$4.99</div></div>
+        <div class="game-box" onclick="window.location.href='rdr2.html'"><div class="game-img"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg" alt="Red Dead Redemption 2"></div><div class="game-overlay">Red Dead Redemption 2<br>$59.99</div></div>
+        <div class="game-box" onclick="window.location.href='lol.html'"><div class="game-img"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRrfsvxrIF71WVpvLwgVQ_wnw4jOtzWldYL3r3x1RGdSka-1hAX6MgESHEqe1OOuEfQgPlOkw" alt="League of Legends"></div><div class="game-overlay">League of Legends<br>Free</div></div>
+    </div>
+    <div class="featured-section">
+        <div class="featured-heading">featured games</div>
+        <div class="featured-flex">
+            <div class="featured-box" onclick="window.location.href='rdr2.html'">
+                <div class="featured-img"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg" alt="Red Dead Redemption 2"></div>
+                <div class="featured-overlay">Red Dead Redemption 2<br>$59.99</div>
+            </div>
+            <div class="featured-box" onclick="window.location.href='cyberpunk2077.html'">
+                <div class="featured-img"><img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg" alt="Cyberpunk 2077"></div>
+                <div class="featured-overlay">Cyberpunk 2077<br>$49.99</div>
+            </div>
+            <div class="featured-box" onclick="window.location.href='elden-ring.html'">
+                <div class="featured-img"><img src="https://image.api.playstation.com/vulcan/img/rnd/202111/0506/hcFeWRVGHYK72uOw6Mn6f4Ms.jpg" alt="Elden Ring"></div>
+                <div class="featured-overlay">Elden Ring<br>$59.99</div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                For further inquiries contact: airidas.gruzinskas@elev.ga.ntig.se OR call this telephone number +46761575182
+            </div>
+            <div class="footer-section">
+                All pictures are used under fair use and all credits for the pictures shall be credited
+            </div>
+            <div class="footer-section">
+                Sweden, Stockholm, 11241, Sysslomansgatan 18, 112 41, Stockholm
+            </div>
+            <div class="footer-section">
+                This website is STRICTLY for educational reasons and isin't actually functional, all games have credits mentioned in the description to avoid copyright
+            </div>
+                
+        </div>
+    </footer>
+
+    <script>
+        // Check if user is logged in
+        function checkLoginStatus() {
+            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            const loginRegister = document.getElementById('loginRegister');
+            const usernameSpan = document.getElementById('username');
+
+            if (loggedInUser) {
+                welcomeMessage.style.display = 'block';
+                usernameSpan.textContent = loggedInUser.username;
+                loginRegister.style.display = 'none';
+            } else {
+                welcomeMessage.style.display = 'none';
+                loginRegister.style.display = 'flex';
+            }
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('loggedInUser');
+            checkLoginStatus();
+        }
+
+        // Check login status when page loads
+        document.addEventListener('DOMContentLoaded', checkLoginStatus);
+    </script>
+</body>
+</html>
+
+
+

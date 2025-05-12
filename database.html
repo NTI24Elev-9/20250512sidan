@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Database - SteepGamesHub</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .database-container {
+            max-width: 800px;
+            margin: 200px auto 50px;
+            padding: 20px;
+            background-color: #808080;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        .database-header {
+            background-color: #666666;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .database-header h1 {
+            margin: 0;
+            color: black;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+        }
+
+        .user-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #666666;
+            overflow: hidden;
+            border: 2px solid black;
+        }
+
+        .user-table th, .user-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid black;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        .user-table th {
+            background-color: #555555;
+            font-weight: bold;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="site-wrapper">
+        <div class="logo">
+            <a href="Maincode.html" style="text-decoration: none; color: inherit;">SteepGamesHub</a>
+        </div>
+        <div class="main-nav">
+            <nav>
+                <ul>
+                    <li><a href="#">Games Of The Year 2025</a></li>
+                    <li><a href="#">Free Games</a></li>
+                    <li><a href="#">Budget Games</a></li>
+                    <li><a href="#">Games</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="BoxM">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Store</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="#">Account Wallet</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="social-circles">
+            <div class="circle twitter"></div>
+            <div class="circle facebook"></div>
+            <div class="circle discord"></div>
+        </div>
+        <div class="action-boxes">
+            <div class="action-box cart-box">Cart</div>
+            <div class="action-box"><a href="login.html" style="text-decoration: none; color: inherit;"</div>Login</div>
+            <div class="action-box"><a href="register.html" style="text-decoration: none; color: inherit;">Register</a></div>
+        </div>
+
+        <div class="database-container">
+            <div class="database-header">
+                <h1>Registered Users Database</h1>
+            </div>
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Age</th>
+                        <th>Registration Date</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+               
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                For further inquiries contact: airidas.gruzinskas@elev.ga.ntig.se OR call this telephone number +46761575182
+            </div>
+            <div class="footer-section">
+                All pictures are used under fair use and all credits for the pictures shall be credited
+            </div>
+            <div class="footer-section">
+                Sweden, Stockholm, 11241, Sysslomansgatan 18, 112 41, Stockholm
+            </div>
+        </div>
+    </footer>
+
+    <script>
+      
+        function loadUsers() {
+            const userTableBody = document.getElementById('userTableBody');
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            if (users.length === 0) {
+                userTableBody.innerHTML = `                                        
+                `;
+                return;
+            }
+
+            userTableBody.innerHTML = users.map((user, index) => `
+                <tr>
+                    <td>${user.username}</td>
+                    <td>${user.email}</td>
+                    <td>${user.password}</td>
+                    <td>${user.age}</td>
+                    <td>${user.registrationDate}</td>
+                       
+                    </td>
+                </tr>
+            `).join('');
+        }
+        document.addEventListener('DOMContentLoaded', loadUsers);
+    </script>
+</body>
+</html> 
